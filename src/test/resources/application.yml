@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: "Drones Rest API"
+  profiles:
+    active:
+      - "h2"
+
+springdoc:
+  swagger-ui:
+    path: /docs
+
+
+scheduler:
+  audit-interval: 6000000000
+  drone-state-updater: 1000000000

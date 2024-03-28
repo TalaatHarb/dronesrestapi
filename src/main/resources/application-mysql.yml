@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: "Drones Rest API"
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/dronesdb
+    username: root
+    password: 1234
