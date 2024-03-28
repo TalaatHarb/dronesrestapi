@@ -72,10 +72,7 @@ While implementing your solution **please take care of the following requirement
 - there are 2 profiles one for h2 and one for mysql
 - you can go to application.yml and select the profile you want
 - you can build a docker image using this command gradle jibDockerBuild
-- after you build the docker image use this command to run docker run -p 8080:8080 --name dronesRestAPIH2 -d mohamedsamir1495/dronesrestapi
+- after you build the docker image use this command to run '''docker run -p 8080:8080 --name dronesRestAPIH2 -d mohamedsamir1495/dronesrestapi'''
 - you have a swagger with sample on localhost:8080/docs for testing
 
 :scroll: **END**
-
-
-docker run -p 8080:8080 --name dronesRestAPIH2 -d mohamedsamir1495/dronesrestapi
