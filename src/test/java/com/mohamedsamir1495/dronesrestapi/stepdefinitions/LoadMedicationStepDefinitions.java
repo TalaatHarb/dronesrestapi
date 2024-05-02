@@ -14,6 +14,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.test.StepVerifier;
@@ -68,7 +69,7 @@ public class LoadMedicationStepDefinitions extends SpringIntegrationTest {
     public void theResponseStatusCodeShouldBe(int statusCode) {
         savedMedications = response
                 .expectStatus().isEqualTo(statusCode)
-                .expectBody(List.class)
+                .expectBody(new ParameterizedTypeReference<List<MedicationDTO>>() {})
                 .returnResult()
                 .getResponseBody();
     }

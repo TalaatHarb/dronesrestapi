@@ -1,5 +1,16 @@
 package com.mohamedsamir1495.dronesrestapi.stepdefinitions;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.web.reactive.server.WebTestClient;
+
 import com.mohamedsamir1495.dronesrestapi.config.SpringIntegrationTest;
 import com.mohamedsamir1495.dronesrestapi.domain.drone.entity.Drone;
 import com.mohamedsamir1495.dronesrestapi.domain.drone.enums.DroneModel;
@@ -9,18 +20,10 @@ import com.mohamedsamir1495.dronesrestapi.domain.medication.enums.MedicationStat
 import com.mohamedsamir1495.dronesrestapi.dto.MedicationDTO;
 import com.mohamedsamir1495.dronesrestapi.repository.DroneRepository;
 import com.mohamedsamir1495.dronesrestapi.repository.MedicationRepository;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.test.web.reactive.server.WebTestClient;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CheckLoadedMedicationStepDefinitions extends SpringIntegrationTest {
 
@@ -70,7 +73,7 @@ public class CheckLoadedMedicationStepDefinitions extends SpringIntegrationTest 
 	public void theResponseShouldContainTheListOfLoadedMedicationItems() {
 		List<MedicationDTO> result = response
 				.expectStatus().isEqualTo(HttpStatus.OK)
-				.expectBody(List.class)
+				.expectBody(new ParameterizedTypeReference<List<MedicationDTO>>() {})
 				.returnResult()
 				.getResponseBody();
 		assertNotNull(result);

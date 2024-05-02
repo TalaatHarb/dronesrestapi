@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class DroneLowBatteryException extends DroneValidationException {
 
-    public DroneLowBatteryException(String serialNumber) {
+	private static final long serialVersionUID = 5697974262589808610L;
+
+	public DroneLowBatteryException(String serialNumber) {
         super(String.format("Drone [%s]'s battery power is not enough to move to loading state", serialNumber));
     }
 
