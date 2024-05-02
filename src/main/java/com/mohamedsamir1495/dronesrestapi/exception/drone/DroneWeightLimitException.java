@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class DroneWeightLimitException extends DroneValidationException {
 
-    public DroneWeightLimitException(String serialNumber) {
+	private static final long serialVersionUID = -8448736977295964019L;
+
+	public DroneWeightLimitException(String serialNumber) {
         super(String.format("The new weight load exceed the current drone [%s]'s weight load", serialNumber));
     }
 
